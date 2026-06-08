@@ -12,7 +12,7 @@ app.get('/contact' , (req , res) => {
     res.send("contact page")
 })
 app.get('/home' , (req , res) => {
-    
+    res.send("Hello I am Farooq Zehri")
 })
 app.get('/services' , (req  , res) => {
     res.send("services page new")
