@@ -11,7 +11,9 @@ app.get('/about' , (req , res) => {
 app.get('/contact' , (req , res) => {
     res.send("contact page")
 })
-app.get('/home' , (req , res))
+app.get('/home' , (req , res) => {
+    
+})
 app.get('/services' , (req  , res) => {
     res.send("services page new")
 })
