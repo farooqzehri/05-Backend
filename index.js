@@ -17,7 +17,7 @@ app.get('/', (req , res) => {
         res.send('Hello World!')
     })
     app.post('/todo', (req ,res) => {
-        const {title} = req.body
+        const { title } = req.body;
         allTodos.push({
             title, 
             id: Date.now()
