@@ -6,7 +6,27 @@ app.get('/', (req , res) => {
     res.send("hello World");
     })
 
+    const allTodos = []
     
+    const checkMiddleWare = (req ,res , next) => {
+        console.log('check middle ware');
+        next();
+    }
+
+    app.get('/', checkMiddleWare, (req , res) => {
+        res.send('Hello World!')
+    })
+    app.post('/todo', (req ,res) => {
+        const {title} = req.body
+        allTodos.push({
+            title, 
+            id: Date.now()
+        })
+        res.status(201).json({
+            message: 'new Todo Created ',
+            todo: allTodos
+        })
+    })
 // app.get('/about' , (req , res) => {
 //     res.send("About PAge")
 // })
