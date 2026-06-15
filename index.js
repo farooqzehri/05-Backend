@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended : true}))
     app.get('/', checkMiddleWare, (req , res) => {
         res.send('Hello World!')
     })
-    app.get('/todo', (req ,res) => {
+    app.get('/todo', (req, res) => {
         const { title } = req.body;
         allTodos.push({
             title, 
@@ -28,14 +28,14 @@ app.use(express.urlencoded({extended : true}))
     })
 
     // get Todo
-    app.get('/todo', (res , req) => {
+    app.get('/todo', (res, req) => {
         res.status(200).json({
             todo: allTodos
         })
     })
-    app.get('/', (req , res) => {
-    res.send("hello World");
-    })
+    // app.get('/', (req , res) => {
+    // res.send("hello World");
+    // })
 
 // app.get('/about' , (req , res) => {
 //     res.send("About PAge")
