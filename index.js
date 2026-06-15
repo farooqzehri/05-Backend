@@ -2,9 +2,8 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-app.get('/', (req , res) => {
-    res.send("hello World");
-    })
+app.use(express.json())
+app.use(express.urlencoded({extended : true}))
 
     const allTodos = []
     
@@ -16,7 +15,7 @@ app.get('/', (req , res) => {
     app.get('/', checkMiddleWare, (req , res) => {
         res.send('Hello World!')
     })
-    app.post('/todo', (req ,res) => {
+    app.get('/todo', (req ,res) => {
         const { title } = req.body;
         allTodos.push({
             title, 
@@ -27,6 +26,17 @@ app.get('/', (req , res) => {
             todo: allTodos
         })
     })
+
+    // get Todo
+    app.get('/todo', (res , req) => {
+        res.status(200).json({
+            todo: allTodos
+        })
+    })
+    app.get('/', (req , res) => {
+    res.send("hello World");
+    })
+
 // app.get('/about' , (req , res) => {
 //     res.send("About PAge")
 // })
