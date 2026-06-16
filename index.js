@@ -100,7 +100,7 @@ app.get('/users' , (req , res) => {
     res.send('user page')
 })
 app.get('/products' , (req , res) => {
-    res.send('')
+    res.send('Products page')
 })
 app.get('/todos' , (req , res) => {
     res.json(todos)
