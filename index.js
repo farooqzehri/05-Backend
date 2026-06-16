@@ -99,7 +99,8 @@ app.get('/', (req, res, next) => {
 app.get('/users' , (req , res) => {
     res.send('user page')
 })
-
+app.get('/products' , (req , res) => {
+})
 app.get('/todos' , (req , res) => {
     res.json(todos)
 })
