@@ -97,7 +97,7 @@ app.get('/', (req, res, next) => {
     res.send('Hello World')
 })
 app.get('/users' , (req , res) => {
-    
+    res.send('user page')
 })
 
 app.get('/todos' , (req , res) => {
