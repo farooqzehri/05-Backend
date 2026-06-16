@@ -96,6 +96,9 @@ const todos = [
 app.get('/', (req, res, next) => {
     res.send('Hello World')
 })
+app.get('/users' , (req , res) => {
+    
+})
 
 app.get('/todos' , (req , res) => {
     res.json(todos)
