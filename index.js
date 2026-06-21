@@ -37,9 +37,9 @@ app.use(express.urlencoded({extended : true}))
     res.send("hello World");
     })
 
-app.get('/about' , (req , res) => {
-    res.send("About PAge")
-})
+// app.get('/about' , (req , res) => {
+//     res.send("About PAge")
+// })
 // app.get('/contact' , (req , res) => {
 //     res.send("contact page")
 // })
