@@ -42,7 +42,7 @@ app.use(express.urlencoded({extended : true}))
 // })
 app.get('/contact' , (req , res) => {
     res.send("contact page")
-// })
+})
 // app.get('/home' , (req , res) => {
 //     res.send("Hello I am Farooq Zehri")
 // })
