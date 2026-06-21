@@ -41,7 +41,7 @@ app.use(express.urlencoded({extended : true}))
 //     res.send("About PAge")
 // })
 app.get('/contact' , (req , res) => {
-//     res.send("contact page")
+    res.send("contact page")
 // })
 // app.get('/home' , (req , res) => {
 //     res.send("Hello I am Farooq Zehri")
