@@ -40,7 +40,7 @@ app.use(express.urlencoded({extended : true}))
 // app.get('/about' , (req , res) => {
 //     res.send("About PAge")
 // })
-// app.get('/contact' , (req , res) => {
+app.get('/contact' , (req , res) => {
 //     res.send("contact page")
 // })
 // app.get('/home' , (req , res) => {
