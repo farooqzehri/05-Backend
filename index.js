@@ -1,24 +1,37 @@
+// import express from 'express'
 const express = require('express');
+var cors = require('cors')
 const app = express();
 const port = 3000;
 
+app.use(cors())
 app.use(express.json())
-app.use(express.urlencoded({extended : true}))
+// app.use(express.urlencoded({extended : true}))
 
     const allTodos = []
     
-    const checkMiddleWare = (req ,res , next) => {
-        console.log('check middle ware');
-        next();
-    }
+    // const checkMiddleWare = (req ,res , next) => {
+    //     console.log('check middle ware');
+    //     next();
+    // }
 
-    app.get('/', checkMiddleWare, (req , res) => {
-        res.send('Hello World!')
-    })
+    // app.get('/', checkMiddleWare, (req , res) => {
+    //     res.send('Hello World!')
+    // })
    app.post("/todo", (req, res) => {
   const { title } = req.body;
+  const {desc} = req.body
+  const {name} = req.body
+  const {fName} = req.body
+  const {email} = req.body
+  const {password} = req.body
   allTodos.push({
     title,
+    desc,
+    name,
+    fName,
+    email,
+    password,
     id: Date.now(),
   });
 
@@ -33,6 +46,39 @@ app.use(express.urlencoded({extended : true}))
     todo: allTodos,
   });
 });
+// delete todo
+app.delete('/todo/:id' , (req , res) => {
+    const {id} = req.params;
+    const index = allTodos.findIndex((item) => item.id === +id )
+
+    if (index === -1){
+        return res.status(404).json({
+            message: 'todo not find'
+        })
+    }
+    allTodos.splice(index , 1);
+    res.status(200).json({
+        message: 'todo deleted',
+        todo: allTodos
+    })
+})
+
+// edit todo
+app.put('/todo/:id', (req , res) => {
+    const {id} = req.params;
+    const index = allTodos.findIndex((item)=> item.id === +id)
+    if(index === -1){
+        return res.status(404).json({
+            message: 'todo not found!'
+        })
+    }
+    allTodos[index].title = req.body.title
+    res.status(200).json({
+        message: "todo Edited Success",
+        todo : allTodos
+    })
+})
+//  home route
     app.get('/', (req , res) => {
     res.send("hello World");
     })
@@ -40,10 +86,10 @@ app.use(express.urlencoded({extended : true}))
 // app.get('/about' , (req , res) => {
 //     res.send("About PAge")
 // })
-app.get('/contact' , (req , res) => {
-    res.send("contact page")
-})
-// app.get('/home' , (req , res) => {
+// app.get('/contact' , (req , res) => {
+//     res.send("contact page")
+// })
+// // app.get('/home' , (req , res) => {
 //     res.send("Hello I am Farooq Zehri")
 // })
 // app.get('/services' , (req  , res) => {
